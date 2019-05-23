@@ -1,29 +1,38 @@
 # vue-q-icon
 
-## Project setup
-```
-npm install
-```
+# 如何使用
+  - 安装
+  ```
+    npm install vue-q-icon --save-dep
+  ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+  - 引入
 
-### Compiles and minifies for production
-```
-npm run build
-```
+  ```
+    import Vue from 'vue';
+    import QIcon from "vue-q-icon";
 
-### Run your tests
-```
-npm run test
-```
+    Vue.use(QIcon, options?: { size: 20 })
+  ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+  - 示例
+  ```
+    <template>
+      <QIcon name="微笑" />
+      <QIcon name="撇嘴" />
+      <QIcon name="色" />
+      <QIcon name="发呆" />
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+      <!-- etc... -->
+    </template>
+
+    <script>
+      export default {
+        data() {
+        },
+
+        mounted() {
+        },
+      };
+    </script>
+  ```

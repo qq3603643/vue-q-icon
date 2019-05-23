@@ -1,11 +1,13 @@
 {
   "name": "vue-q-icon",
   "version": "0.1.0",
-  "private": true,
+  "main": "./dist/vueQIcon.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "set BUILD_MODE=production && vue-cli-service build",
+    "build-lib": "set BUILD_MODE=lib && vue-cli-service build --target lib --name VueQIcon src/packages/index.ts",
+    "lint": "vue-cli-service lint",
+    "publish": "npm publish"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -27,6 +29,15 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "typescript": "^3.4.3",
-    "vue-template-compiler": "^2.5.21"
-  }
+    "vue-template-compiler": "^2.5.21",
+    "webpack-cli": "^3.3.2"
+  },
+  "description": "## Project setup ``` npm install ```",
+  "keywords": [
+    "vue",
+    "qq",
+    "icon"
+  ],
+  "author": "tangerine",
+  "license": "ISC"
 }
