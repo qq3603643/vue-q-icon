@@ -1,6 +1,6 @@
 {
   "name": "vue-q-icon",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "./dist/vueQIcon.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",

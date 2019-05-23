@@ -6,8 +6,8 @@ export {
   QIconOptions,
 };
 
-export default function install(Vue: VueConstructor, options: QIconOptions) {
-  mergeConfig(options);
+export default function install(Vue: VueConstructor, options?: QIconOptions) {
+  mergeConfig(options = {});
 
   Vue.component("QIcon", QIcon);
 }
