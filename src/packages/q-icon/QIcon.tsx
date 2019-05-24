@@ -9,7 +9,6 @@ import Vue, { CreateElement } from "vue";
 import {
   Component,
   Prop,
-  Watch
 } from "vue-property-decorator";
 
 interface Size {
@@ -125,7 +124,6 @@ export default class QIcon extends Vue {
 
   /************************************* Methods *************************************/
   mounted() {
-    const vm = this;
   }
 
   render(h: CreateElement) {

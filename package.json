@@ -2,10 +2,11 @@
   "name": "vue-q-icon",
   "version": "0.1.2",
   "main": "./dist/vueQIcon.umd.min.js",
+  "types": "./dist/types/packages/index.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "set BUILD_MODE=production && vue-cli-service build",
-    "build-lib": "set BUILD_MODE=lib && vue-cli-service build --target lib --name VueQIcon src/packages/index.ts",
+    "build-lib": "set BUILD_MODE=lib && vue-cli-service build --target lib --name vueQIcon  --formats commonjs src/packages/index.ts",
     "lint": "vue-cli-service lint",
     "publish": "npm publish"
   },
@@ -32,7 +33,7 @@
     "vue-template-compiler": "^2.5.21",
     "webpack-cli": "^3.3.2"
   },
-  "description": "## Project setup ``` npm install ```",
+  "description": "vue q icon",
   "keywords": [
     "vue",
     "qq",

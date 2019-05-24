@@ -1,4 +1,6 @@
-const { resolve } = require("path");
+const {
+  resolve
+} = require("path");
 let build_mode = process.env.BUILD_MODE;
 build_mode = build_mode ? build_mode.trim() : build_mode;
 
@@ -10,7 +12,12 @@ if (!isDev) {
   console.log(`build_mode -> ${build_mode}`);
 }
 
-const config = {};
+const config = {
+  lintOnSave: false,
+  parallel: false,
+  productionSourceMap: false,
+};
+
 if (isDev) {
   // dev
   Object.assign(config, {
@@ -36,12 +43,44 @@ if (build_mode === "lib") {
   // lib
   Object.assign(config, {
     configureWebpack: (config) => {
+      config.externals = {
+        vue: 'vue',
+      };
     },
 
-    chainWebpack: (config) => {
-    },
+    chainWebpack: config => {
+      config
+        .entry("app")
+        .clear()
+        .add("./src/packages/index.ts");
 
-    productionSourceMap: false,
+      // config.module
+      //   .rule("js")
+      //   .exclude.add(resolve("src/lib/jsdifflib/jsdifflib.js"))
+      //   .add(resolve("src/lib/qunee/Q.js"));
+
+      config.module
+        .rule("ts")
+        .use("ts-loader")
+        .loader("ts-loader")
+        .tap(options => {
+          options.transpileOnly = false;
+          return options;
+        });
+
+      config.module
+        .rule("tsx")
+        .use("ts-loader")
+        .loader("ts-loader")
+        .tap(options => {
+          options.transpileOnly = false;
+          return options;
+        });
+
+      /* 移除 cache-loader，使之生成类型定义文件 */
+      config.module.rule("ts").uses.delete("cache-loader");
+      config.module.rule("tsx").uses.delete("cache-loader");
+    },
   });
 }
 
