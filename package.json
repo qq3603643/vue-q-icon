@@ -1,6 +1,6 @@
 {
   "name": "vue-q-icon",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "./dist/vueQIcon.umd.min.js",
   "types": "./dist/types/packages/index.d.ts",
   "scripts": {
